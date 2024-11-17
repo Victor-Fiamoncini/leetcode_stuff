@@ -38,6 +38,3 @@ def two_sum(items: list[int], target: int) -> list[int]:
             return [start, end]
 
     return []
-
-
-print(two_sum([1, 2, 3, 4, 5, 6, 7, 8], 5))

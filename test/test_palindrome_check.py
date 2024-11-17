@@ -1,7 +1,7 @@
 from src.palindrome_check import palindrome_check
 
 
-def test_palindrome_check():
+def test_palindrome_check() -> None:
     assert palindrome_check("o") == True
     assert palindrome_check("ovo") == True
     assert palindrome_check("ovvo") == True
