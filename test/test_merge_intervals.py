@@ -7,3 +7,4 @@ def test_merge_intervals() -> None:
         [8, 10],
         [15, 18],
     ]
+    assert merge_intervals([[1, 4], [4, 5]]) == [[1, 5]]

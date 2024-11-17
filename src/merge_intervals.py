@@ -13,21 +13,13 @@ intervals[i].length == 2
 
 
 def merge_intervals(intervals: list[list[int]]) -> list[list[int]]:
-    no_overlaping_intervals = []
+    # Stack approach
+    stack = []
 
-    for index in range(len(intervals)):
-        left = intervals[index][0]
-        right = intervals[index][1]
+    for interval in intervals:
+        if len(stack) == 0 or stack[-1][1] < interval[0]:
+            stack.append(interval)
+        else:
+            stack[-1][1] = max(stack[-1][1], interval[1])
 
-        if index == len(intervals) - 1:  # it's the last pair
-            no_overlaping_intervals.append([left, right])
-
-            return no_overlaping_intervals
-
-        next_left = intervals[index + 1][0]
-        next_right = intervals[index + 1][1]
-
-        if right >= next_left:
-            no_overlaping_intervals.append([left, next_right])
-
-    return no_overlaping_intervals
+    return stack
