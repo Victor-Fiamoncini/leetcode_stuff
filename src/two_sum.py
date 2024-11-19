@@ -3,7 +3,7 @@ Given an array of integers and a target, find two numbers such that they add up 
 """
 
 
-def two_sum(items: list[int], target: int) -> list[int]:
+def two_sum(items: list[int], target: int) -> list[int] | None:
     # Brute force approach
     # for i in range(len(items)):
     #     for j in range(i + 1, len(items)):
@@ -21,20 +21,18 @@ def two_sum(items: list[int], target: int) -> list[int]:
 
     #     visited[item] = index
 
-    # return []
-
     # Two pointers approach
     start = 0
     end = len(items) - 1
 
-    for _ in range(len(items)):
+    while start < end:
         sum = items[start] + items[end]
 
-        if sum < target:
-            start = start + 1
-        elif sum > target:
-            end = end - 1
-        else:
+        if sum == target:
             return [start, end]
+        elif sum < target:
+            start = start + 1
+        else:
+            end = end - 1
 
-    return []
+    return None
